@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer>
+    ////////recursion
+    function recursionFor(i, max_times) {
+      if (i >= max_times) return;
+      i++;
+      console.log(i);
+      recursionFor(i, max_times);
+    }
+    //recursionFor(0, 500);
+    //////////bubble sort
+    function bubbleSort(arr, i) {
+      if (i >= arr.length - 1) return;
+      var temp;
+      for (let j = 0; j <= arr.length - 1; j++) {
+        temp = arr[j];
+        if (arr[j] > arr[j + 1]) {
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+      i++;
+      bubbleSort(arr, i);
+    }
+    var a = [65, 62, 74, 35, 753, 63, 69, 30];
+    console.log("Before sort: " + a);
+    bubbleSort(a, 0);
+    console.log("After sort: " + a);
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
