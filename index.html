@@ -14,6 +14,11 @@
       recursionFor(i, max_times);
     }
     //recursionFor(0, 500);
+    function swap(arr, i, j) {
+      var temp = arr[i]
+      arr[i] = arr[j]
+      arr[j] = temp;
+    }
     //////////bubble sort
     function bubbleSort(arr, i) {
       if (i >= arr.length - 1) return;
@@ -28,10 +33,41 @@
       i++;
       bubbleSort(arr, i);
     }
+    ///////////////////////////////incersion sort
+    function insertionSort(arr, i) {
+      if (i > arr.length - 1) return;
+      var current = arr[i];
+      var j = i;
+      while (j > 0 && arr[j - 1] > current) {
+        arr[j] = arr[j - 1];
+        j--;
+      }
+      arr[j] = current;
+      insertionSort(arr, i + 1);
+    }
+    function selectionSort(arr, i) {
+      if (i > arr.length - 1) return;
+      var min = i;
+      for (var j = i; j <= arr.length; j++) {
+        if (arr[j] < arr[min]) {
+          min = j;
+        }
+      } //end loop
+      swap(arr, min, i);
+      selectionSort(arr, i + 1);
+    } //end selection sort
     var a = [65, 62, 74, 35, 753, 63, 69, 30];
-    console.log("Before sort: " + a);
+    console.log("Before bubble sort: " + a);
     bubbleSort(a, 0);
-    console.log("After sort: " + a);
+    console.log("After bubble sort: " + a);
+    a = [65, 62, 74, 35, 753, 63, 69, 30];
+    console.log("Before insertion sort: " + a);
+    insertionSort(a, 0);
+    console.log("After insertion sort: " + a);
+    a = [65, 62, 74, 35, 753, 63, 69, 30];
+    console.log("Before selection sort: " + a);
+    selectionSort(a, 0);
+    console.log("After selection sort: " + a);
   </script>
 </head>
 
