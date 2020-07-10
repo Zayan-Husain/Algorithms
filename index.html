@@ -2,76 +2,43 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script defer>
-    ////////recursion
-    function recursionFor(i, max_times) {
-      if (i >= max_times) return;
-      i++;
-      console.log(i);
-      recursionFor(i, max_times);
-    }
-    //recursionFor(0, 500);
-    function swap(arr, i, j) {
-      var temp = arr[i]
-      arr[i] = arr[j]
-      arr[j] = temp;
-    }
-    //////////bubble sort
-    function bubbleSort(arr, i) {
-      if (i >= arr.length - 1) return;
-      var temp;
-      for (let j = 0; j <= arr.length - 1; j++) {
-        temp = arr[j];
-        if (arr[j] > arr[j + 1]) {
-          arr[j] = arr[j + 1];
-          arr[j + 1] = temp;
-        }
-      }
-      i++;
-      bubbleSort(arr, i);
-    }
-    ///////////////////////////////incersion sort
-    function insertionSort(arr, i) {
-      if (i > arr.length - 1) return;
-      var current = arr[i];
-      var j = i;
-      while (j > 0 && arr[j - 1] > current) {
-        arr[j] = arr[j - 1];
-        j--;
-      }
-      arr[j] = current;
-      insertionSort(arr, i + 1);
-    }
-    function selectionSort(arr, i) {
-      if (i > arr.length - 1) return;
-      var min = i;
-      for (var j = i; j <= arr.length; j++) {
-        if (arr[j] < arr[min]) {
-          min = j;
-        }
-      } //end loop
-      swap(arr, min, i);
-      selectionSort(arr, i + 1);
-    } //end selection sort
-    var a = [65, 62, 74, 35, 753, 63, 69, 30];
-    console.log("Before bubble sort: " + a);
-    bubbleSort(a, 0);
-    console.log("After bubble sort: " + a);
-    a = [65, 62, 74, 35, 753, 63, 69, 30];
-    console.log("Before insertion sort: " + a);
-    insertionSort(a, 0);
-    console.log("After insertion sort: " + a);
-    a = [65, 62, 74, 35, 753, 63, 69, 30];
-    console.log("Before selection sort: " + a);
-    selectionSort(a, 0);
-    console.log("After selection sort: " + a);
-  </script>
+  <title>materializecss example</title>
+  <meta charset="utf-8">
+  <!--you must have a view port-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- materializecss cdn link-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/box_model_helper.css">
+
+
 </head>
 
 <body>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="sorter"></div>
+
+    </div>
+
+  </div>
+
+
+
+
+  <!--javascript scripts jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="js/sort_anim.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 
