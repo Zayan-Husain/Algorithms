@@ -16,7 +16,12 @@ $(document).ready(function () {
   // insertionSort(a, 0, sa);
   a = [65, 67, 74, 35, 753, 63, 69, 30];
   sa = new sort_anim("Selection Sort", a, ".sorter");
-  selectionSort(a, 0, sa);
+  //selectionSort(a, 0, sa);
+  a = [4, 5, 1, 208, 724, 525, 678, 470];
+  console.log("Before merge sort: " + a)
+  a = mergeSort(a);
+  console.log("After merge sort: " + a)
+  // console.log(binarySearch(a, 99))
 });
 
 
@@ -93,7 +98,38 @@ async function selectionSort(arr, i, sa) {
   await sleep(1000);
   selectionSort(arr, i + 1, sa);
 } //end selection sort
-
+function binarySearch(arr, sq) {
+  var low = 0;
+  var high = arr.length - 1;
+  while (low <= high) {
+    var mid = Math.floor((low + high) / 2)
+    if (arr[mid] === sq) return mid;
+    else if (arr[mid] < sq) low = mid + 1
+    else high = mid - 1;
+  }
+  return -1;
+}
+function mergeSort(arr, sa) {
+  if (arr.length <= 1) return arr;
+  var m = Math.floor(arr.length / 2);
+  var l = arr.slice(0, m);
+  var r = arr.slice(m);
+  return merge(mergeSort(l, sa), mergeSort(r, sa), sa);
+}
+function merge(l, r, sa) {
+  var result = [];
+  var li = 0, ri = 0;
+  while (li < l.length && ri < r.length) {
+    if (l[li] < r[ri]) {
+      result.push(l[li]);
+      li++;
+    } else {
+      result.push(r[ri]);
+      ri++;
+    }
+  } //////// end while
+  return result.concat(l.slice(li)).concat(r.slice(ri));
+}
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
