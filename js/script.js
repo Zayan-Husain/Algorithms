@@ -22,6 +22,8 @@ $(document).ready(function () {
   a = mergeSort(a);
   console.log("After merge sort: " + a)
   // console.log(binarySearch(a, 99))
+  //Hanoi Tower Solver
+  //hanoiTowerSolver(3, 'a', 'b', 'c');
 });
 
 
@@ -132,4 +134,15 @@ function merge(l, r, sa) {
 }
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+function hanoiTowerSolver(a, from, middle, to) {
+  if (a == 1) {
+    console.log("\t\tMove disc 1 from " + from + " to " + to + "\n");
+    return;
+  }
+  else {
+    hanoiTowerSolver(a - 1, from, to, middle);
+    console.log("\t\tMove disc " + a + " from " + from + " to " + to + "\n");
+    hanoiTowerSolver(a - 1, middle, from, to);
+  }
 }
